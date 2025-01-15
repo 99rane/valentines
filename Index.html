@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffe4e1;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      color: #ff69b4;
+    }
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+      margin: 10px;
+    }
+    .no {
+      background-color: #f08080;
+      color: white;
+      position: absolute;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Will you be my Valentine? ❤️</h1>
+    <div class="buttons">
+      <button class="yes" onclick="alert('Yay! 💖')">Yes</button>
+      <button class="no" id="noBtn">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseover', () => {
+      const container = noBtn.parentElement.getBoundingClientRect();
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const newX = Math.random() * (container.width - btnWidth);
+      const newY = Math.random() * (container.height - btnHeight);
+
+      noBtn.style.transform = `translate(${newX}px, ${newY}px)`;
+    });
+  </script>
+</body>
+</html>
